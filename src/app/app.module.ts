@@ -1,16 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MaterializeModule } from 'angular2-materialize';
+
+import { Routing } from './app.routes';
 
 import { AppComponent } from './app.component';
+import { ListsComponent } from './lists/lists.component';
+import { ListDetailsComponent } from './lists/list-details/list-details.component';
+
+import { ListService } from './lists/lists.service'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListsComponent,
+    ListDetailsComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MaterializeModule,
+    Routing
   ],
-  providers: [],
+  providers: [
+    ListService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
