@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { ListService } from './lists.service';
 
 @Component({
   selector: 'app-lists',
   templateUrl: './lists.component.html',
-  styleUrls: ['./lists.component.css']
 })
 export class ListsComponent implements OnInit {
 
-  constructor() { }
+    lists = this.listService.getLists()
 
-  ngOnInit() {
-  }
+    constructor(private listService: ListService) {
+    }
+
+    ngOnInit() {
+    }
 
 }
