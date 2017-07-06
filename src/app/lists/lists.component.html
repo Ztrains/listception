@@ -1,14 +1,14 @@
 <div class="container">
     <h1 class="center-align">Lists</h1>
     <div class=row>
-        <div *ngFor="let list of lists" class="col s6">
+        <div *ngFor="let list of lists; let i = index" class="col s6">
             <div class="card blue-grey darken-1">
                 <div class="card-content white-text">
                     <span class="card-title">{{list.Title}}</span>
                     <p>{{list.Description}}</p>
                 </div>
                 <div class="card-action">
-                    <a href="#">View List</a>
+                    <a [routerLink]="['/lists', i]">View List {{i}}</a>
                 </div>
             </div>
         </div>
