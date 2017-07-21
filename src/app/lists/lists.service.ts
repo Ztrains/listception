@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core'
+import { Http, Headers, RequestOptions } from '@angular/http'
 import { List } from './list.model'
+import 'rxjs/add/operator/map'
 
 @Injectable()
 export class ListService {
+    headers = new Headers({ 'Content-Type': 'application/json' })
+    options = new RequestOptions({ headers: this.headers })
 
-    constructor() {
+    masterList: any[]
+
+    constructor(private http: Http) { }
+
+    getLists() {
+        return this.http.get('http://localhost:3000/api/lists').map(res => res.json())
     }
 
-    getLists(): List[] {
-        return LISTS;
-    }
-
-    getList(id: number): List{
-        return LISTS[id];
+    getList(id: number) {
+        return this.http.get(`http://localhost:3000/api/lists/${id}`)
     }
 
 }

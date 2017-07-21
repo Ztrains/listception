@@ -7,12 +7,18 @@ import { ListService } from './lists.service';
 })
 export class ListsComponent implements OnInit {
 
-    lists = this.listService.getLists()
+    lists: any[] = []
 
     constructor(private listService: ListService) {
     }
 
     ngOnInit() {
+        this.listService.getLists().subscribe((res) => {
+            this.lists = res
+            console.log(this.lists)
+            console.log(this.lists[0])
+        })
+
     }
 
 }

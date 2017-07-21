@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+
 import { MaterializeModule } from 'angular2-materialize';
 
 import { Routing } from './app.routes';
@@ -19,7 +21,8 @@ import { ListService } from './lists/lists.service'
   imports: [
     BrowserModule,
     MaterializeModule,
-    Routing
+    Routing,
+    HttpModule
   ],
   providers: [
     ListService
