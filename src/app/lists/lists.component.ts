@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService } from './lists.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+declare var $ :any
 
 @Component({
   selector: 'app-lists',
@@ -8,17 +10,31 @@ import { ListService } from './lists.service';
 export class ListsComponent implements OnInit {
 
     lists: any[] = []
+    listsForm: FormGroup
 
-    constructor(private listService: ListService) {
+    constructor(private listService: ListService, private fb: FormBuilder) {
     }
 
     ngOnInit() {
+        this.createForm()
         this.listService.getLists().subscribe((res) => {
             this.lists = res
             console.log(this.lists)
             console.log(this.lists[0])
         })
+    }
 
+    createForm() {
+		this.listsForm = this.fb.group({
+			title: ['', Validators.required],
+			description: ['', Validators.required],
+		})
+	}
+
+    addList(form) {
+        this.listService.addList(form).subscribe(() => {
+
+        })
     }
 
 }

@@ -9,16 +9,16 @@ import { List } from '../list.model'
 })
 export class ListDetailsComponent implements OnInit {
 
-    id: number;
+    id: string;
     currentList: any[];
 
     constructor(private listService: ListService, private route: ActivatedRoute) { }
 
     ngOnInit() {
         this.route.params.subscribe(params => {
-            this.id = +params['id']; // (+) converts string 'id' to a number
-            this.listService.getLists().subscribe((res) => {
-                this.currentList = res[this.id].contents
+            this.id = params['id']; // (+) converts string 'id' to a number
+            this.listService.getList(this.id).subscribe((res) => {
+                this.currentList = res.contents
                 console.log(this.currentList)
             })
         });

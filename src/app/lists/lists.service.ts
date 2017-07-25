@@ -16,13 +16,17 @@ export class ListService {
         return this.http.get('http://localhost:3000/api/lists').map(res => res.json())
     }
 
-    getList(id: number) {
-        return this.http.get(`http://localhost:3000/api/lists/${id}`)
+    getList(id: string) {
+        return this.http.get(`http://localhost:3000/api/lists/${id}`).map(res => res.json())
+    }
+
+    addList(form) {
+        return this.http.post()
     }
 
 }
 
-const LISTS:List[] = [
+/*const LISTS:List[] = [
     {
         Id: 1,
         Title: 'This is the first title',
@@ -98,4 +102,4 @@ const LISTS:List[] = [
             }
         ]
     }
-]
+]*/
