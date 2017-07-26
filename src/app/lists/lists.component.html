@@ -1,33 +1,33 @@
 <div class="container">
-    <h1 class="center-align">Lists</h1>
+    <nav style="margin-top: 1em; margin-bottom: 5em;">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Listception</a>
+        </div>
+    </nav>
 
-    <ul class="collapsible" data-collapsible="accordion">
-        <li>
-            <div class="collapsible-header"><i class="material-icons">add_box</i>New list</div>
-            <div class="collapsible-body">
-                <div class="row">
-                    <form [formGroup]="listsForm" class="col s12">
-                        <div class="row">
-                            <div class="input-field col s5">
-                                <!--<i class="material-icons prefix">title</i>-->
-                                <input id="title" type="text" class="validate" formControlName="title">
-                                <label for="title">Title</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <!--<i class="material-icons prefix">description</i>-->
-                                <input id="description" type="text" class="validate" formControlName="description">
-                                <label for="description">Description</label>
-                            </div>
-                            <div class="col s1">
-                                <br>
-                                <a class="waves-effect waves-light btn" (click)="addList(listsForm)">Add List</a>
-                            </div>
-                        </div>
-                    </form>
+    <h5 class="center-align">New list</h5>
+    <div class="row">
+        <form [formGroup]="listsForm" class="col s12">
+            <div class="row">
+                <div class="input-field col s5">
+                    <!--<i class="material-icons prefix">title</i>-->
+                    <input id="title" type="text" class="validate" formControlName="title">
+                    <label for="title">Title</label>
+                </div>
+                <div class="input-field col s5">
+                    <!--<i class="material-icons prefix">description</i>-->
+                    <input id="description" type="text" class="validate" formControlName="description">
+                    <label for="description">Description</label>
+                </div>
+                <div class="col s2">
+                    <br>
+                    <button class="btn waves-effect waves-light" (click)="addList(listsForm)" name="action">Add list
+                        <i class="material-icons right">send</i>
+                    </button>
                 </div>
             </div>
-        </li>
-    </ul>
+        </form>
+    </div>
 
     <div class=row>
         <div *ngFor="let list of lists; let i = index" class="col s6">

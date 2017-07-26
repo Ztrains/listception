@@ -17,11 +17,7 @@ export class ListsComponent implements OnInit {
 
     ngOnInit() {
         this.createForm()
-        this.listService.getLists().subscribe((res) => {
-            this.lists = res
-            console.log(this.lists)
-            console.log(this.lists[0])
-        })
+        this.getLists()
     }
 
     createForm() {
@@ -33,7 +29,16 @@ export class ListsComponent implements OnInit {
 
     addList(form) {
         this.listService.addList(form).subscribe(() => {
+            this.createForm()
+            this.getLists()
+        })
+    }
 
+    getLists() {
+        this.listService.getLists().subscribe((res) => {
+            this.lists = res
+            console.log(this.lists)
+            console.log(this.lists[0])
         })
     }
 

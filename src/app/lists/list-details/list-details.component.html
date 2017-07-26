@@ -1,6 +1,21 @@
 <div class="container">
     <h1 class="center-align">Lists</h1>
-    <ul class="collection">
+
+    <ul class="collection col s6 offset-s3">
+        <li class="collection-item center-align">
+            <div class="row">
+                <div class="input-field col s10">
+                    <input id="title" type="text" class="validate" [formControl]="newDetail">
+                    <label for="title">Add to list</label>
+                </div>
+                <div class="col s2">
+                    <br>
+                    <button class="btn waves-effect waves-light" (click)="addDetail()" name="action">Add
+                        <i class="material-icons right">add</i>
+                    </button>
+                </div>
+            </div>
+        </li>
         <li *ngFor="let detail of currentList; let i = index" class="collection-item">{{detail.detail}}</li>
     </ul>
 </div>
